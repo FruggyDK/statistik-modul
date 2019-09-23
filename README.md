@@ -1,1 +1,1 @@
-# statistik-modul
+# statistik-modul (python)
