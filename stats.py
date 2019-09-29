@@ -1,28 +1,5 @@
 import math
-
-'''todo
-     n
-     total
-     min
-     max
-     middel
-
-     q1
-     median
-     q3
-
-     variationsbredde
-     kvartilvariation
-
-     øvre grænse
-     nedre grænse
-
-     stikprøve
-        varians
-        spredning
-     population
-        varians
-        spredning'''
+from prettytable import PrettyTable
 
 class data:
     def __init__(self, data):
@@ -40,18 +17,20 @@ class data:
 
     def printOut(self):
         self.data.sort()
-        print("data: ",self.data)
-        print("sum: ",self.sum)
-        print("n: ",self.length)
-        print("middel: ",self.middel)
-        print("obs: ",self.obs)
-        print("hyppighed: ",self.hyppighed)
-        print("varians: ",self.varians)
-        print("spredning: ",self.spredning)
-        print("min: ",self.min)
-        print("max: ",self.max)
-        print("variationsbredde: ",self.variationsbredde)
+        table = PrettyTable()
 
+        table.field_names = ('#', 'n')
+        table.add_row(['sum', self.sum])
+        table.add_row(['n', self.length])
+        table.add_row(['middel', self.middel])
+        table.add_row(['obs', self.obs])
+        table.add_row(['hyppighed', self.hyppighed])
+        table.add_row(['varians', self.varians])
+        table.add_row(['spredning', self.spredning])
+        table.add_row(['min', self.min])
+        table.add_row(['max', self.max])
+        table.add_row(['variationsbredde', self.variationsbredde])
+        print(table)
 
     def g_hyppighed(self):
         self.data.sort()
