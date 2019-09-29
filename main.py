@@ -1,4 +1,6 @@
 from stats import data
+from prettytable import PrettyTable
+table = PrettyTable()
 
 class input:
     def __init__(self, input):
@@ -10,4 +12,10 @@ obs.g_varians()
 obs.g_spredning()
 obs.printOut()
 
+table.field_names = ["#", "n"]
+
+table.add_row(["sum", obs.sum])
+table.add_row(["n", obs.length])
+table.add_row(["middel", obs.middel])
+print(table)
 
