@@ -32,13 +32,26 @@ class data:
         table.add_row(['variationsbredde', self.variationsbredde])
         print(table)
 
+
+    def print(self):
+        self.data.sort()
+        table = PrettyTable()
+            #generate self.frekvens
+        table.field_names = ('i', 'Observation (xi)', 'Hyppighed (hi)', 'Frekvens (fi)') # , 'Summeret frekvens (Fi)'
+        i = 1
+        while i <= len(self.obs):
+            table.add_row([i, self.obs[i-1], self.hyppighed[self.obs[i-1]], (self.hyppighed[self.obs[i-1]] / self.length)])
+            i += 1
+        print(table)
+
+
     def g_hyppighed(self):
         self.data.sort()
         for entry in self.data:
             if entry not in self.obs:
                 #self.obs[entry] = 'unasigned'
                 self.obs.append(entry)
-        else:
+        else: 
             for obs in self.obs:
                 self.hyppighed[obs] = self.data.count(obs)
             #else:
